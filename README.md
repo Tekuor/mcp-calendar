@@ -81,7 +81,7 @@ Add a new local server configuration like:
 }
 ```
 
-Restart Claude — it should automatically detect and connect to your MCP server.
+Restart Claude, it should automatically detect and connect to your MCP server.
 
 ### Tech Stack
 
