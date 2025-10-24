@@ -7,7 +7,7 @@ import axios from "axios";
 
 dotenv.config({
   quiet: true,
-  path: "C:\\Users\\matek\\OneDrive\\Documents\\mcp_servers\\mcp-calendar\\.env",
+  path: "C:\\Users\\matek\\OneDrive\\Documents\\mcp_servers\\mcp-calendar\\.env", //Change this to your env file path
 });
 
 const server = new McpServer({
