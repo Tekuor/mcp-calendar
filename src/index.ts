@@ -84,16 +84,29 @@ server.tool(
     end: z.string().describe("Event end date and time"),
     location: z
       .string()
-      .describe("Geographic location of the event as free-form text")
-      .optional(),
+      .describe("Geographic location of the event as free-form text"),
+    minutesReminder: z
+      .number()
+      .describe(
+        "Number of minutes before the start of the event when the reminder should trigger"
+      ),
   },
-  async ({ title, start, end, location }) => {
+  async ({ title, start, end, location, minutesReminder }) => {
     const calendar = getCalendarClient();
     const event = {
       summary: title,
       start: { dateTime: start },
       end: { dateTime: end },
       location,
+      reminders: {
+        overrides: [
+          {
+            method: "email",
+            minutes: minutesReminder,
+          },
+        ],
+        useDefault: false,
+      },
     };
 
     const res = await calendar.events.insert({
@@ -119,14 +132,31 @@ server.tool(
       .string()
       .describe("Geographic location of the event as free-form text")
       .optional(),
+    minutesReminder: z
+      .number()
+      .describe(
+        "Number of minutes before the start of the event when the reminder should trigger"
+      )
+      .optional(),
   },
-  async ({ title, start, end, eventId, location }) => {
+  async ({ title, start, end, eventId, location, minutesReminder }) => {
     const calendar = getCalendarClient();
     const event = {
       ...(title && { summary: title }),
       ...(start && { start: { dateTime: start } }),
       ...(end && { end: { dateTime: end } }),
       ...(location && { location }),
+      ...(minutesReminder && {
+        reminders: {
+          overrides: [
+            {
+              method: "email",
+              minutes: minutesReminder,
+            },
+          ],
+          useDefault: false,
+        },
+      }),
     };
 
     const res = await calendar.events.patch({
