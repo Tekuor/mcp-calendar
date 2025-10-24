@@ -1,4 +1,4 @@
-# 🗓️ MCP Calendar Server
+# MCP Calendar Server
 
 A local [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that connects **Claude Desktop** to your **Google Calendar**.
 
@@ -23,7 +23,7 @@ This project implements an MCP server in **Node.js** that communicates with Clau
 
 ---
 
-## 🧩 Tools Implemented
+## Tools Implemented
 
 | Tool                    | Description                                          |
 | ----------------------- | ---------------------------------------------------- |
@@ -52,11 +52,13 @@ cd mcp-calendar
 
 ### 3. Create a .env file
 
+```
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 GOOGLE_REDIRECT_URI=your_google_redirect_uri
 GOOGLE_REFRESH_TOKEN=your_google_refresh_token
 OPENROUTESERVICE_API_KEY=your_openrouteservice_api_key
+```
 
 ### 4. Run the MCP server
 
