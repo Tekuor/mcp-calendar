@@ -2,7 +2,7 @@
 
 A local [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that connects **Claude Desktop** to your **Google Calendar**.
 
-This lets Claude manage calendar events, check schedules, and even calculate travel time between meetings — all locally and securely.
+This lets Claude manage calendar events, check schedules, and even calculate travel time between meetings all locally.
 
 ---
 
